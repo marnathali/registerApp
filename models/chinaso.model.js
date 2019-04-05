@@ -3,11 +3,14 @@ var Schema = mongoose.Schema;
 
 
 var ChinasoSchema = new Schema({
-    contenido: String,
-    autor: String,
-    capturador: String,
-    fecha_registro: { type: Date,  default: Date.now() },
-    puntaje: [{ type: Number, date: Date, min: 1, max: 5  }]
+  contenido: String,
+  autor: String,
+  capturador: String,
+  puntaje: {
+    type: Number,
+    min: 1,
+    max: 5
+  },
 });
 
 // Export the model
