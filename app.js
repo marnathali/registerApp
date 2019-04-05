@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 
 const product = require('./routes/product.route'); // Imports routes for the products
 const chinaso = require('./routes/chinaso.route'); // Imports routes for the products
+const participante = require('./routes/participante.route');
+
 
 const app = express();
 
@@ -23,7 +25,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use('/products', product);
 app.use('/products', chinaso);
-
+app.use('/products',  participante);
 let port = 1234;
 
 app.listen(port, () => {

@@ -16,7 +16,6 @@ var router = express.Router();
 var chinaso_controller = require('../controllers/chinaso.controller');
 
 
-// a simple test url to check that all of our files are communicating correctly.
 router.post('/create_chinaso', chinaso_controller.chinaso_create);
 
 router.get('/:id/chinaso', chinaso_controller.chinaso_details);
