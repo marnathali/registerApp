@@ -1,5 +1,4 @@
 //paso 6 controllers
-
 var Chinaso = require('../models/chinaso.model');
 
 
@@ -8,7 +7,7 @@ exports.chinaso_create = function(req, res) {
     contenido: req.body.contenido,
     autor: req.body.autor,
     capturador: req.body.capturador,
-    puntaje: req.body.puntaje
+    fecha_registro: req.body.fecha_registro
   });
 
   chinaso.save(function(err) {
@@ -19,12 +18,39 @@ exports.chinaso_create = function(req, res) {
   })
 };
 
-exports.chinaso_details = function(req, res) {
-  Chinaso.findById(req.params.id, function(err, chinaso) {
-    if (err) return next(err);
-    res.send(chinaso);
-  })
+
+exports.chinaso_details = (req, res, next, id) => {
+  Chinaso.findById(id)
+    .populate('autor capturador')
+    .exec()
+    .then(chinaso => {
+      if (chinaso) {
+        req.chinaso = chinaso;
+        next();
+      } else {
+        res.json({
+          "message": "chinaso not found"
+        });
+      }
+    })
+    .catch(err => {
+      next(new Error(err));
+    });
 };
+
+exports.chinaso_all = (req, res, next)=> {
+  Chinaso.find()
+    .populate('autor capturador')
+    .exec()
+    .then( chinasos => {
+        res.json(chinasos);
+    })
+    .catch( err => {
+        next(new Error(err));
+    });
+};
+
+
 
 exports.chinaso_update = function(req, res) {
   Chinaso.findByIdAndUpdate(req.params.id, {

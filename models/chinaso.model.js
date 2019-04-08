@@ -1,16 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Participante = require('../models/participante.model');
 
 
 var ChinasoSchema = new Schema({
   contenido: String,
-  autor: String,
-  capturador: String,
-  puntaje: {
-    type: Number,
-    min: 1,
-    max: 5
+  autor:{
+    type: Schema.ObjectId,
+    ref: 'Participante'
   },
+  capturador: {
+    type: Schema.ObjectId,
+    ref: 'Participante'
+  },
+  fecha_registro: Date
 });
 
 // Export the model

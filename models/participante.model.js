@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var ParticipanteSchema = new Schema({
   nombre: String,
-  departamento: String,
+  departamento: String
 });
 
 // Export the model
