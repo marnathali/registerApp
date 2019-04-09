@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use('/products', product);
-app.use('/products', chinaso);
+app.use('/chinaso', chinaso);
 app.use('/participante',  participante);
 app.use('/juez',  juez);
 app.use('/ronda',  ronda);

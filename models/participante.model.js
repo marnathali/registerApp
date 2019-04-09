@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 
 var ParticipanteSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   nombre: String,
   departamento: String
 });

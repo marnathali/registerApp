@@ -18,11 +18,11 @@ exports.chinaso_create = function(req, res) {
   })
 };
 
-
 exports.chinaso_details = (req, res, next, id) => {
   Chinaso.findById(id)
-    .populate('autor capturador')
-    .exec()
+  populate('autor').
+  populate('capturador').
+  exec()
     .then(chinaso => {
       if (chinaso) {
         req.chinaso = chinaso;

@@ -16,11 +16,11 @@ var router = express.Router();
 var chinaso_controller = require('../controllers/chinaso.controller');
 
 
-router.post('/create_chinaso', chinaso_controller.chinaso_create);
-router.get('/:id/chinaso', chinaso_controller.chinaso_details);
+router.post('/create', chinaso_controller.chinaso_create);
+router.get('/:id', chinaso_controller.chinaso_details);
 router.get('/chinasos', chinaso_controller.chinaso_all);
-router.put('/:id/update_chinaso', chinaso_controller.chinaso_update);
-router.delete('/:id/delete_chinaso', chinaso_controller.chinaso_delete);
+router.put('/:id/update', chinaso_controller.chinaso_update);
+router.delete('/:id/delete', chinaso_controller.chinaso_delete);
 
 
 module.exports = router;
