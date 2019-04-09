@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 var express = require('express');
 var router = express.Router();
 
-var chinaso_controller = require('../controllers/chinaso.controller');
+var chinaso_controller = require('../controllers/chinaso');
 
 
 router.post('/create', chinaso_controller.chinaso_create);

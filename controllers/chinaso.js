@@ -1,5 +1,5 @@
 //paso 6 controllers
-var Chinaso = require('../models/chinaso.model');
+var Chinaso = require('../models/chinaso');
 
 
 exports.chinaso_create = function(req, res) {

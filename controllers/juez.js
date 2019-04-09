@@ -1,6 +1,6 @@
 //paso 6 controllers
 
-var Juez = require('../models/juez.model');
+var Juez = require('../models/juez');
 
 exports.juez_create = function(req, res) {
   var juez = new Juez({

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Participante = require('../models/participante.model');
+var Participante = require('../models/participante');
 
 
 var ChinasoSchema = new Schema({

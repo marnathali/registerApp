@@ -1,4 +1,4 @@
-var Ronda = require('../models/ronda.model');
+var Ronda = require('../models/ronda');
 
 
 
