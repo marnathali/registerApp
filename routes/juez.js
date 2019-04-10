@@ -7,6 +7,8 @@ router.post('/create', juez_controller.juez_create);
 
 router.get('/:id', juez_controller.juez_details);
 
+router.get('/', juez_controller.juez_all);
+
 router.put('/:id/update', juez_controller.juez_update);
 
 router.delete('/:id/delete', juez_controller.juez_delete);

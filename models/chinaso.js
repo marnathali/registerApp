@@ -17,4 +17,4 @@ var ChinasoSchema = new Schema({
 });
 
 // Export the model
-module.exports = mongoose.model('Chinaso', ChinasoSchema, 'ChinasoModel');
+module.exports = mongoose.model('Chinaso', ChinasoSchema);

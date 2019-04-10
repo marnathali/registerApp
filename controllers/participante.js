@@ -36,18 +36,23 @@ exports.participante_all = (req, res) => {
 };
 
 
-exports.participante_update = function(req, res) {
-  Participante.findByIdAndUpdate(req.params.id, {
-    $set: req.body
-  }, function(err, participante) {
-    if (err) return next(err);
-    res.send('Participante modificado');
+exports.participante_update = (req, res) =>{
+  let partId = req.params.id;
+  let updated = req.body;
+
+  Participante.findOneAndUpdate(partId, updated, (err, participante) => {
+    if (err) return res.status(500).send({message: `No se actualizo el ${participante}`});
+
+    res.send(participante);
   });
 };
 
-exports.participante_delete = function(req, res) {
-  Participante.findByIdAndRemove(req.params.id, function(err) {
-    if (err) return next(err);
+exports.participante_delete = (req, res)=> {
+  let partId = req.params.id;
+
+  Participante.findOneAndDelete(partId, (err,  participante) =>{
+    if (err) return res.status(500).send({message: `No se elimino ${participante}`});
+    if(!participante) return res.status(404).send({message: `No encontrado${participante}`});
     res.send('Eliminado el Participante');
   })
 };
