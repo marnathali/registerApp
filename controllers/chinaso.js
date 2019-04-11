@@ -25,8 +25,8 @@ exports.chinaso_create = function(req, res) {
        if(!chinaso) return res.status(404).send({message: `A ti no te encuentro Bro ${chinaso}`});
        res.send(chinaso);
      })
-     .populate('autor')
-     .populate('capturador')
+     .populate('autor', 'nombre')
+     .populate('capturador', 'nombre')
      .exec((err, autores, capturadores) => {
        console.log("El chinaso tiene " + autores + capturadores);
      })
@@ -40,8 +40,8 @@ exports.chinaso_all = (req, res) => {
     if(!chinasos) return res.status(404).send({message: `Not found chinasos`});
     res.send(chinasos);
   })
-  .populate('autor')
-  .populate('capturador')
+  .populate('autor', 'nombre')
+  .populate('capturador', 'nombre')
   .exec((err, autores, capturadores) => {
     console.log("El chinaso tiene " + autores );
     console.log("El chinaso tiene " + capturadores );

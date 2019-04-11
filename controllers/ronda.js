@@ -21,23 +21,17 @@ exports.ronda_create = function(req, res) {
 
 
 
-exports.ronda_details = (req, res, next, id) => {
-  Ronda.findById(id)
-    .populate('ganador')
-    .exec()
-    .then(ronda => {
-      if (ronda) {
-        req.ronda = ronda;
-        next();
-      } else {
-        res.json({
-          "message": "ronda not found"
-        });
-      }
-    })
-    .catch(err => {
-      next(new Error(err));
-    });
+exports.ronda_details = (req, res) => {
+  let rondaId = req.params.id;
+  Ronda.findById(rondaId, (err, ronda) =>{
+    if (err) return res.status(500).send({message: `Ups, algo sucedio  ${ronda}`});
+    if(!ronda) return res.status(404).send({message: `NOT FOUND ${ronda}`});
+    res.send(ronda);
+  })
+  .populate('ganador')
+  .exec((err, ganador) => {
+    console.log("el gandor de esta ronda fue: "+ganador);
+  })
 };
 
 
